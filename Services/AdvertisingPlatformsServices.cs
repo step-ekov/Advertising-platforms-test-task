@@ -4,7 +4,7 @@
     {
         public Dictionary<string, List<string>> Download()
         {
-            string file = "C:\\Users\\Степан\\Desktop\\Рекламные площадки.txt";
+            string file = "C:\\Users\\Степан\\source\\repos\\TestTask\\TestTask\\Рекламные площадки2.txt"; //Поменять на свой путь
 
             var allPlatforms = new Dictionary<string, List<string>>();
             var lines = File.ReadAllLines(file);

@@ -1,0 +1,74 @@
+﻿@page
+@model TestTask.Pages.IndexModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Рекламные площадки</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <div class="namePage">
+        <p>Рекламные площадки</p>
+    </div>
+
+    <div>
+        <button id="loadPlatforms" onclick="downloadPlatforms()">Загрузить список площадок</button>
+        <input id="searchLocation" value="Введите локацию" onclick="clearText()"/>
+        <button id="acceptSearch" onclick="search()">Применить</button>
+    </div>
+
+    <table id="platforms">
+        <thead>
+            <tr>
+                <th style="width: 500px;">Площадка</th>
+                <th>Локация</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    async function downloadPlatforms() {
+        const response = await fetch("/api/AdvertisingPlatforms/download");
+        allDownload(response);
+    }
+</script>
+
+<script>
+    async function search() {
+        const location = encodeURIComponent(document.getElementById('searchLocation').value.trim());
+        const response = await fetch(`/api/AdvertisingPlatforms/search?input=${location}`);
+        allDownload(response);
+    }
+</script>
+
+<script>
+    async function allDownload(response) {
+        if (!response.ok){
+            alert("Ошибка, данные не загрузились");
+            return;
+        }
+
+        const data = await response.json();
+        const tbody = document.querySelector("#platforms tbody");
+        tbody.innerHTML = '';
+        Object.entries(data).forEach(([platform, locations]) => {
+            const row = document.createElement('tr');
+            const locationList = locations.join(', ');
+
+            row.innerHTML = `<td>${platform}</td><td>${locationList}</td>`;
+            tbody.appendChild(row);
+        });
+    }
+</script>
+
+<script>
+    function clearText(){
+        const input = document.querySelector("#searchLocation");
+        input.value = '';
+    }
+</script>

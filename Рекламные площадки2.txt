@@ -1,0 +1,12 @@
+﻿Уральский вестник:/ru/svrd/ekb,/ru/svrd/nvgt
+Новости Сибири:/ru/nsk,/ru/kem,/ru/alt
+Пермский обозреватель:/ru/permobl,/ru/svrd/krasnoturinsk
+Московские будни:/ru/msk,/ru/mo
+Тюменская правда:/ru/tmn,/ru/khmao
+Златоустовская газета:/ru/chelobl/zlat,/ru/chelobl/miass
+Петербургский репортёр:/ru/spb
+Башкирские вести:/ru/bash,/ru/ufa
+Омская реклама:/ru/omsk
+Камская неделя:/ru/permobl/solikamsk,/ru/permobl/ber
+Яндекс.Директ:/ru
+Ревдинский рабочий:/ru/svrd/revda, /ru/svrd

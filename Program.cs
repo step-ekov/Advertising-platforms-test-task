@@ -17,6 +17,7 @@ namespace TestTask
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IAdvertisingPlatformsServices, AdvertisingPlatformsServices>();
+            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
@@ -26,6 +27,9 @@ namespace TestTask
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseStaticFiles();//
+            app.MapRazorPages();//
 
             app.UseHttpsRedirection();
 
